@@ -3,3 +3,9 @@ declare module 'products/Products' {
   const RemoteProducts: FC;
   export default RemoteProducts;
 }
+
+declare module 'basket/Basket' {
+  import React from 'react';
+  const Basket: React.ComponentType;
+  export default Basket;
+}

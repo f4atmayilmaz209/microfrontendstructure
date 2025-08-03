@@ -10,21 +10,23 @@ module.exports = {
         filename: 'static/chunks/remoteEntry.js',
         remotes: {
           products: `products@http://localhost:3001/_next/static/chunks/remoteEntry.js`,
+          basket: 'basket@http://localhost:3002/_next/static/chunks/remoteEntry.js',
         },
         exposes: {
-          // host bu projede bir şey paylaşmıyor, istersen buraya ekleyebilirsin
+          './cartStore': './utils/store/cartStore.ts',
         },
         shared: {
           react: {
             singleton: true,
-            requiredVersion: false,
+            requiredVersion:'18.2.0',
             eager: false,
           },
           'react-dom': {
             singleton: true,
-            requiredVersion: false,
+            requiredVersion:'18.2.0',
             eager: false,
           },
+          zustand: { singleton: true },
         }
       }),
       
@@ -34,6 +36,9 @@ module.exports = {
     };
     config.target = isServer ? 'node16' : 'web'; // veya node18
     return config;
+  },
+    images: {
+    domains: ['fakestoreapi.com'],
   },
   transpilePackages: ['@module-federation'],
   reactStrictMode: false,

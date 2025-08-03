@@ -6,10 +6,10 @@ module.exports = {
   webpack: (config, { isServer }) => {
     config.plugins.push(
       new NextFederationPlugin({
-        name: 'products',
+        name: 'basket',
         filename: 'static/chunks/remoteEntry.js',
         exposes: {
-          './Products': './components/Products.tsx',
+          './Basket': './components/Basket.tsx',
         },
         remotes: {
           host: 'host@http://localhost:3000/_next/static/chunks/remoteEntry.js',
@@ -23,7 +23,7 @@ module.exports = {
       })
     );
     if (!isServer) {
-      config.output.publicPath = `http://localhost:3001/_next/`;
+      config.output.publicPath = `http://localhost:3002/_next/`;
     }
     config.cache = {
       type: 'memory', // disk yerine memory kullan

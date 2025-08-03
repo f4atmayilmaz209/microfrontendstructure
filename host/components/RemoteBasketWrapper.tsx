@@ -3,19 +3,19 @@
 import dynamic from 'next/dynamic';
 import React from 'react';
 
-const RemoteProducts = dynamic(() => import('products/Products'), {
+const Remotebasket = dynamic(() => import('basket/Basket'), {
   ssr: false,
   loading: () => <p>Yükleniyor...</p>,
 });
 
-const RemoteProductsWrapper = () => {
+const RemoteBasketWrapper = () => {
 
 
   return (
     <div>
-      <RemoteProducts />
+      <Remotebasket />
     </div>
   );
 };
 
-export default RemoteProductsWrapper;
+export default RemoteBasketWrapper;

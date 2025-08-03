@@ -1,6 +1,19 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+import 'antd/dist/reset.css';
+import type { AppProps } from 'next/app';
+import dynamic from 'next/dynamic';
+import { useEffect } from 'react';
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+
+// SSR'siz dinamik layout
+const Layout = dynamic(() => import('@/components/Layout'), { ssr: false });
+
+function MyApp({ Component, pageProps }: AppProps) {
+
+  return (
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+  );
 }
+
+export default MyApp;
