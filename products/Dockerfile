@@ -7,7 +7,8 @@ RUN npm install
 
 COPY . .
 
-RUN npm run build
+ENV NEXT_PRIVATE_LOCAL_WEBPACK=true
+RUN npm install webpack && npm run build
 
 EXPOSE 3000
 
