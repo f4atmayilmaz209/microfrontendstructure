@@ -1,9 +1,20 @@
+/* eslint-disable @typescript-eslint/no-require-imports */
 // next.config.js
-// eslint-disable-next-line @typescript-eslint/no-require-imports
+const path = require('path');
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
 module.exports = {
   webpack: (config, { isServer }) => {
+    // React alias tanımlaması ile duplicate react sorununu engelleyelim
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...(config.resolve?.alias || {}),
+        react: path.resolve(__dirname, './node_modules/react'),
+        'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
+      },
+    };
+
     config.plugins.push(
       new NextFederationPlugin({
         name: 'products',
@@ -14,24 +25,28 @@ module.exports = {
         remotes: {
           host: 'host@http://localhost:3000/_next/static/chunks/remoteEntry.js',
         },
-
         shared: {
-          react: { singleton: true, requiredVersion: '18.2.0',eager: false, },
-          'react-dom': { singleton: true, requiredVersion:'18.2.0',eager: false, },
+          react: { singleton: true, requiredVersion: '18.2.0', eager: false },
+          'react-dom': { singleton: true, requiredVersion: '18.2.0', eager: false },
           zustand: { singleton: true },
         },
       })
     );
+
     if (!isServer) {
       config.output.publicPath = `http://localhost:3001/_next/`;
     }
+
     config.cache = {
-      type: 'memory', // disk yerine memory kullan
+      type: 'memory',
     };
-    config.target = isServer ? 'node16' : 'web'; // veya node18
+
+    config.target = isServer ? 'node16' : 'web';
+
     return config;
   },
-    images: {
+
+  images: {
     domains: ['fakestoreapi.com'],
-  }
+  },
 };

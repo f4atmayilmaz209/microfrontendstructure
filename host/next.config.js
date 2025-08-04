@@ -1,9 +1,19 @@
-// next.config.js
-// eslint-disable-next-line @typescript-eslint/no-require-imports
+/* eslint-disable @typescript-eslint/no-require-imports */
+
+const path = require('path');
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
 
 module.exports = {
   webpack: (config, { isServer }) => {
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...(config.resolve?.alias || {}),
+        react: path.resolve(__dirname, './node_modules/react'),
+        'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
+      },
+    };
+
     config.plugins.push(
       new NextFederationPlugin({
         name: 'host',
@@ -18,28 +28,33 @@ module.exports = {
         shared: {
           react: {
             singleton: true,
-            requiredVersion:'18.2.0',
+            requiredVersion: '18.2.0',
             eager: false,
           },
           'react-dom': {
             singleton: true,
-            requiredVersion:'18.2.0',
+            requiredVersion: '18.2.0',
             eager: false,
           },
           zustand: { singleton: true },
-        }
-      }),
-      
+        },
+      })
     );
-      config.cache = {
+
+    config.cache = {
       type: 'memory', // disk yerine memory kullan
     };
+
     config.target = isServer ? 'node16' : 'web'; // veya node18
+
     return config;
   },
-    images: {
+
+  images: {
     domains: ['fakestoreapi.com'],
   },
+
   transpilePackages: ['@module-federation'],
+
   reactStrictMode: false,
 };
