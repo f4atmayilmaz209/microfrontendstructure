@@ -1,12 +1,11 @@
-
 declare module 'host/cartStore' {
-  "use client"
-  import { UseBoundStore } from 'zustand';
+  "use client";
+  import { UseBoundStore, StoreApi } from 'zustand';
 
   interface CartItem {
     id: number;
     title: string;
-    image:string;
+    image: string;
     price: number;
     quantity: number;
   }
@@ -18,5 +17,5 @@ declare module 'host/cartStore' {
     clearCart: () => void;
   }
 
-  export const useCartStore: UseBoundStore<CartState>;
+  export const useCartStore: UseBoundStore<StoreApi<CartState>>;
 }
