@@ -23,7 +23,7 @@ module.exports = {
           './Products': './components/Products.tsx',
         },
         remotes: {
-          host: 'host@http://localhost:3000/_next/static/chunks/remoteEntry.js',
+          host: 'host@http://ip172-18-0-25-d28inlc69qi000aie8bg-3000.direct.labs.play-with-docker.com/_next/static/chunks/remoteEntry.js',
         },
         shared: {
           react: { singleton: true, requiredVersion: "^18.2.0", eager: false },
