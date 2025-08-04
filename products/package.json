@@ -11,10 +11,10 @@
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.8.34",
     "antd": "^5.26.7",
-    "next": "13.4.7",
-    "react": "^18.2.0",
+    "next": "14.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "cross-env": "^7.0.3",
-    "react-dom": "^18.2.0",
     "webpack-cli": "^4.10.0",
     "zustand": "^5.0.7",
     "webpack": "^5.89.0"
@@ -31,7 +31,7 @@
     "typescript": "^5"
   },
   "resolutions": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   }
 }
