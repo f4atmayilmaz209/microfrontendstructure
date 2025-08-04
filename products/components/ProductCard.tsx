@@ -16,7 +16,8 @@ interface Props {
 }
 
 const ProductCard: React.FC<Props> = ({ product }) => {
-   const { addToCart } = useCartStore();
+   const addToCart = useCartStore((state) => state.addToCart);
+   
   return (
     <Card
       hoverable

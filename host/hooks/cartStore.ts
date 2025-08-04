@@ -2,10 +2,16 @@
 
 import { useStore } from 'zustand';
 import { createCartStore } from '@/utils/store/cartStore';
-const store = createCartStore();
+import type { CartState } from '@/utils/store/cartStore';
 
-export const useCartStore = <T>(selector: (state: ReturnType<typeof store.getState>) => T): T =>
-  useStore(store, selector);
+// 🚨 Singleton store (her importta yeniden yaratılmaz!)
+const cartStore = createCartStore();
 
-// Basit kullanım için alternatif:
-export const useCartStoreRaw = () => useStore(store);
+export const useCartStore = <T>(
+  selector: (state: CartState) => T
+): T => useStore(cartStore, selector);
+
+export const useCartStoreRaw = () => useStore(cartStore);
+
+// Store'u SSR'de geçmek için export et
+export { cartStore };
