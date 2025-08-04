@@ -7,6 +7,7 @@ import Image from 'next/image';
 import { Product } from '@/pages/api/product';
 import { useCartStore } from 'host/cartStore';
 
+
 const { Meta } = Card;
 const { Paragraph, Text } = Typography;
 
@@ -15,8 +16,7 @@ interface Props {
 }
 
 const ProductCard: React.FC<Props> = ({ product }) => {
-  const addToCart = useCartStore((state: { addToCart: any }) => state.addToCart);
-
+   const { addToCart } = useCartStore();
   return (
     <Card
       hoverable

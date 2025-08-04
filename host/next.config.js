@@ -23,7 +23,7 @@ module.exports = {
           basket: 'basket@http://localhost:3002/_next/static/chunks/remoteEntry.js',
         },
         exposes: {
-          './cartStore': './utils/store/cartStore.ts',
+          './cartStore': './hooks/cartStore.ts',
         },
         shared: {
           react: {

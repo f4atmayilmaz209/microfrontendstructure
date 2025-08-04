@@ -4,13 +4,14 @@ import { Layout, Menu, Badge, Button, Popover, Drawer } from 'antd';
 import { ShoppingCartOutlined, MenuOutlined } from '@ant-design/icons';
 import Link from 'next/link';
 import React, { useState } from 'react';
-import { useCartStore } from '@/utils/store/cartStore';
+
 import RemoteBasketWrapper from './RemoteBasketWrapper';
+import { useCartStoreRaw } from '@/hooks/cartStore';
 
 const { Header } = Layout;
 
 const Navbar: React.FC = () => {
-  const items = useCartStore((state) => state.items);
+  const {items} = useCartStoreRaw();
   const [cartVisible, setCartVisible] = useState(false);
   const [drawerVisible, setDrawerVisible] = useState(false);
 
