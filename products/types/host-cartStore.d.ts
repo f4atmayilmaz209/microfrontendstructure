@@ -1,4 +1,6 @@
+
 declare module 'host/cartStore' {
+  "use client"
   import { UseBoundStore } from 'zustand';
 
   interface CartItem {
