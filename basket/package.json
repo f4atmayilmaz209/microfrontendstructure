@@ -5,13 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start", 
+    "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@module-federation/nextjs-mf": "^8.8.34",
     "antd": "^5.26.7",
-    "next": "13.4.12",
+    "next": "^15.4.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "zustand": "^5.0.7"
@@ -34,5 +34,5 @@
   "resolutions": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
-}
+  }
 }
