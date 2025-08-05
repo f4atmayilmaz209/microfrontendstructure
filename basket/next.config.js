@@ -26,7 +26,7 @@ module.exports = {
           host: 'host@http://localhost:3000/_next/static/chunks/remoteEntry.js',
         },
         shared: {
-          react: { singleton: true, requiredVersion: "^^18.2.0", eager: false },
+          react: { singleton: true, requiredVersion: "^18.2.0", eager: false },
           'react-dom': { singleton: true, requiredVersion: "^18.2.0", eager: false },
           zustand: { singleton: true },
         },

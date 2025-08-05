@@ -34,8 +34,9 @@ const Navbar: React.FC = () => {
     >
       {/* Logo ve Menü */}
       <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
-        <Link href="/" style={{ fontSize: 20, fontWeight: 600 }}>
-          🛒 ShopNow
+        <Link href="/" style={{ fontSize: 20, fontWeight: 600, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <ShoppingCartOutlined style={{ fontSize: 20 }} />
+          ShopNow
         </Link>
 
         {/* Masaüstü menüsü */}

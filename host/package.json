@@ -3,19 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@ant-design/icons": "^6.0.0",
     "@module-federation/nextjs-mf": "^8.8.34",
+    "@swc/helpers": "^0.4.14",
     "antd": "^5.26.7",
-    "next": "13.4.19",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "webpack-cli": "^4.10.0",
+    "next": "^13.4.12",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "zustand": "^5.0.7"
   },
   "devDependencies": {
@@ -28,9 +27,12 @@
     "ajv-keywords": "^3.5.2",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
+    "html-webpack-plugin": "^5.6.3",
     "tailwindcss": "^4",
     "typescript": "^5",
-    "webpack": "^5.88.0"
+    "webpack": "^5.90.0",
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^5.2.2"
   },
   "resolutions": {
     "react": "^18.2.0",

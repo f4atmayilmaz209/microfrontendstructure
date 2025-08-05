@@ -23,7 +23,7 @@ module.exports = {
           './Products': './components/Products.tsx',
         },
         remotes: {
-          host: `host@${process.env.HOST_REMOTE_URL}/_next/static/chunks/remoteEntry.js`,
+          host: 'host@http://localhost:3000/_next/static/chunks/remoteEntry.js',
         },
         shared: {
           react: { singleton: true, requiredVersion: "^18.2.0", eager: false },

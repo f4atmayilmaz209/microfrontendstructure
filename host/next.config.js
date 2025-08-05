@@ -13,27 +13,33 @@ module.exports = {
         'react-dom': path.resolve(__dirname, './node_modules/react-dom'),
       },
     };
-
+    config.module.rules.push({
+    test: /\.js$/,
+    type: 'javascript/auto',
+  });
     config.plugins.push(
       new NextFederationPlugin({
         name: 'host',
         filename: 'static/chunks/remoteEntry.js',
         remotes: {
-          products: `host@${process.env.HOST_REMOTE_URL}/_next/static/chunks/remoteEntry.js`,
+          products:'products@http://localhost:3001/_next/static/chunks/remoteEntry.js',
           basket: 'basket@http://localhost:3002/_next/static/chunks/remoteEntry.js',
         },
         exposes: {
           './cartStore': './hooks/cartStore.ts',
         },
+        
         shared: {
           react: {
             singleton: true,
-            requiredVersion: "^^18.2.0",
+            requiredVersion: "^18.2.0",
+            strictVersion: true,
             eager: false,
           },
           'react-dom': {
             singleton: true,
-            requiredVersion: "^^18.2.0",
+            requiredVersion: "^18.2.0",
+            strictVersion: true,
             eager: false,
           },
           zustand: { singleton: true,eager: false, },
