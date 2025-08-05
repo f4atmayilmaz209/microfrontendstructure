@@ -31,6 +31,7 @@ module.exports = {
           zustand: {
             singleton: true,
             requiredVersion: false,
+            eager: false,
           },
         },
       })

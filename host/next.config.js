@@ -36,7 +36,7 @@ module.exports = {
             requiredVersion: "^^18.2.0",
             eager: false,
           },
-          zustand: { singleton: true },
+          zustand: { singleton: true,eager: false, },
         },
       })
     );
