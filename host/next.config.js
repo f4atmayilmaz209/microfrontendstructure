@@ -19,7 +19,7 @@ module.exports = {
         name: 'host',
         filename: 'static/chunks/remoteEntry.js',
         remotes: {
-          products: `products@http://ip172-18-0-25-d28inlc69qi000aie8bg-3001.direct.labs.play-with-docker.com/_next/static/chunks/remoteEntry.js`,
+          products: `products@http://ip172-18-0-12-d28pp6469qi000fe4e10-3001.direct.labs.play-with-docker.com//_next/static/chunks/remoteEntry.js`,
           basket: 'basket@http://localhost:3002/_next/static/chunks/remoteEntry.js',
         },
         exposes: {
