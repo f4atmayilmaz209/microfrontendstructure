@@ -2,7 +2,7 @@
 
 const path = require('path');
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
-const hostRemoteUrl = process.env.HOST_REMOTE_URL;
+
 module.exports = {
   webpack: (config, { isServer }) => {
     config.resolve = {
@@ -19,7 +19,7 @@ module.exports = {
         name: 'host',
         filename: 'static/chunks/remoteEntry.js',
         remotes: {
-          products: `host@${hostRemoteUrl}/_next/static/chunks/remoteEntry.js`,
+          products: `host@${process.env.HOST_REMOTE_URL}/_next/static/chunks/remoteEntry.js`,
           basket: 'basket@http://localhost:3002/_next/static/chunks/remoteEntry.js',
         },
         exposes: {

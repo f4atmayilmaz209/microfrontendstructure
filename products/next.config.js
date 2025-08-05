@@ -2,7 +2,7 @@
 // next.config.js
 const path = require('path');
 const { NextFederationPlugin } = require('@module-federation/nextjs-mf');
-const hostRemoteUrl = process.env.HOST_REMOTE_URL;
+
 module.exports = {
   webpack: (config, { isServer }) => {
     // React alias tanımlaması ile duplicate react sorununu engelleyelim
@@ -23,7 +23,7 @@ module.exports = {
           './Products': './components/Products.tsx',
         },
         remotes: {
-          host: `host@${hostRemoteUrl}/_next/static/chunks/remoteEntry.js`,
+          host: `host@${process.env.HOST_REMOTE_URL}/_next/static/chunks/remoteEntry.js`,
         },
         shared: {
           react: { singleton: true, requiredVersion: "^18.2.0", eager: false },
